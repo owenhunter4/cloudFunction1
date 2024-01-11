@@ -20,14 +20,17 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.get("/hello", (req, res, next)=>{
+  console.info("GET /hello success");
   res.send("Welcome to firebase functions with Node Express");
 });
 
 app.post("/emailValidate", (req, res, next)=>{
   const postData = req.body;
   if (postData.email) {
+    console.info("POST /emailValidate success");
     res.json({"status": validator.validate(postData.email)});
   } else {
+    console.info("POST /emailValidate wrong input");
     res.status(500).json({"status": "Wrong request input"});
   }
 });
