@@ -15,9 +15,13 @@ const validator = require("email-validator");
 const PORT = 3000;
 const app = express();
 
+
 const bodyParser = require("body-parser");
+const paymentmethodRouter = require("./Router/paymentmethod");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+
+app.use("/carpark/paymentmethod", paymentmethodRouter);
 
 app.get("/hello", (req, res, next)=>{
   console.info("GET /hello success");
