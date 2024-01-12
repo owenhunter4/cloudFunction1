@@ -2,7 +2,7 @@ const express = require("express");
 const router = new express.Router();
 const admin = require("firebase-admin");
 const db = admin.firestore();
-const colletion = "paymentmethod";
+const colletion = "LineLiffUsers";
 
 
 //  Check service status

@@ -15,13 +15,17 @@ const validator = require("email-validator");
 const PORT = 3000;
 const app = express();
 
+const admin = require("firebase-admin");
+admin.initializeApp();
 
 const bodyParser = require("body-parser");
 const paymentmethodRouter = require("./Router/paymentmethod");
+const lineliffusersRouter = require("./Router/lineliffusers");
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use("/carpark/paymentmethod", paymentmethodRouter);
+app.use("/carpark/lineliffusers", lineliffusersRouter);
 
 app.get("/hello", (req, res, next)=>{
   console.info("GET /hello success");
