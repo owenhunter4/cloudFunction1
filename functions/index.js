@@ -47,4 +47,4 @@ app.listen(PORT, ()=>{
   console.log("Server is running on PORt", PORT);
 });
 
-exports.app = functions.https.onRequest(app);
+exports.carparkdata = functions.https.onRequest(app);
